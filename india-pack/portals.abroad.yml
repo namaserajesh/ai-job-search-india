@@ -1,0 +1,225 @@
+# market: abroad
+# India Fresher Pack: portal list for roles OUTSIDE INDIA (entry-level software).
+# Switch markets with:  node india-pack/switch-market.mjs india   (or abroad)
+#
+# Honest warning for students: most companies abroad need you to hold a work
+# visa, and few sponsor fresh graduates from India. career-ops checks each job
+# for sponsorship wording; a "no sponsorship" line is a hard stop. The United
+# States is left out on purpose (graduate work visas there run on a lottery);
+# add "United States" to allow: below if you still want US roles.
+# Company boards below were checked live on 2026-10-25 and returned postings.
+
+location_filter:
+  allow:
+    - "Singapore"
+    - "United Arab Emirates"
+    - "UAE"
+    - "Dubai"
+    - "Abu Dhabi"
+    - "Germany"
+    - "Berlin"
+    - "Munich"
+    - "Netherlands"
+    - "Amsterdam"
+    - "Ireland"
+    - "Dublin"
+    - "United Kingdom"
+    - "London"
+    - "Poland"
+    - "Warsaw"
+    - "Japan"
+    - "Tokyo"
+    - "Canada"
+    - "Toronto"
+    - "Vancouver"
+    - "Australia"
+    - "Sydney"
+    - "Melbourne"
+  # India-based roles belong in the India list; block them here even when a
+  # posting names several countries.
+  block_hard:
+    - "India"
+    - "Bengaluru"
+    - "Bangalore"
+    - "Hyderabad"
+    - "Pune"
+    - "Gurugram"
+    - "Noida"
+    - "Chennai"
+    - "Mumbai"
+  remote_title_fallback: false
+
+title_filter:
+  positive:
+    - "Junior Software"
+    - "Junior Developer"
+    - "Junior Engineer"
+    - "Junior Backend"
+    - "Graduate Software"
+    - "Graduate Developer"
+    - "word:Grad"
+    - "Software Engineer"
+    - "Software Development Engineer"
+    - "word:SDE"
+    - "Associate Engineer"
+    - "Associate Software"
+    - "Graduate Engineer"
+    - "Graduate Trainee"
+    - "Engineer Trainee"
+    - "Fresher"
+    - "New Grad"
+    - "Campus"
+    - "Backend"
+    - "Back End"
+    - "Full Stack"
+    - "Fullstack"
+    - "Frontend"
+    - "Front End"
+    - "SDET"
+    - "QA Engineer"
+    - "Test Engineer"
+    - "Software Intern"
+    - "Software Engineer Intern"
+    - "Software Engineering Intern"
+    - "SDE Intern"
+    - "Software Developer Intern"
+  negative:
+    - "word:II"
+    - "word:III"
+    - "word:IV"
+    - "Senior"
+    - "word:Sr"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Manager"
+    - "Director"
+    - "Architect"
+    - "Head of"
+    - "word:VP"
+    - "Vice President"
+    - "word:AVP"
+    - "Officer"
+    - "Recruiter"
+  seniority_boost:
+    - "Fresher"
+    - "New Grad"
+    - "Graduate Software"
+    - "Graduate Developer"
+    - "Associate"
+    - "Trainee"
+tracked_companies:
+
+  # -- Big tech and global firms (non-India roles via location_filter) --
+  - name: Amazon
+    careers_url: https://www.amazon.jobs/en/
+    provider: amazon
+    amazon:
+      normalized_country_code: ["SGP", "ARE", "DEU", "NLD", "IRL", "GBR", "POL", "JPN", "CAN", "AUS"]
+      category: software-development
+    enabled: true
+
+  - name: Microsoft
+    careers_url: https://microsoft.eightfold.ai/careers?domain=microsoft.com
+    provider: eightfold
+    notes: "Large global board: the slowest company in the scan."
+    enabled: true
+
+  - name: Google
+    careers_url: https://www.google.com/about/careers/applications/jobs/results/
+    provider: google
+    google:
+      location: "Singapore"
+      queries: ["software engineer", "early career software"]
+    notes: "Newest ~20 postings per query. Copy this entry with another location (e.g. Germany, Ireland) for more."
+    enabled: true
+
+  - name: NVIDIA
+    careers_url: https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite
+    enabled: true
+
+  - name: Salesforce
+    careers_url: https://salesforce.wd12.myworkdayjobs.com/External_Career_Site
+    enabled: true
+
+  - name: Intel
+    careers_url: https://intel.wd1.myworkdayjobs.com/External
+    enabled: true
+
+  - name: Adobe
+    careers_url: https://adobe.wd5.myworkdayjobs.com/external_experienced
+    enabled: true
+
+  - name: Bosch
+    careers_url: https://jobs.smartrecruiters.com/BoschGroup
+    enabled: true
+
+  - name: Atlassian
+    careers_url: https://www.atlassian.com/company/careers/all-jobs
+    provider: atlassian
+    notes: "Sydney and remote roles."
+    enabled: true
+
+  # -- Banks and fintech --
+  - name: Mastercard
+    careers_url: https://mastercard.wd1.myworkdayjobs.com/CorporateCareers
+    enabled: true
+
+  - name: Citi
+    careers_url: https://citi.wd5.myworkdayjobs.com/2
+    notes: "Very large board, slow to scan."
+    enabled: true
+
+  - name: Deutsche Bank
+    careers_url: https://db.wd3.myworkdayjobs.com/DBWebsite
+    enabled: true
+
+  - name: Wise
+    careers_url: https://job-boards.greenhouse.io/wise
+    api: https://boards-api.greenhouse.io/v1/boards/wise/jobs
+    enabled: true
+
+  - name: N26
+    careers_url: https://job-boards.greenhouse.io/n26
+    api: https://boards-api.greenhouse.io/v1/boards/n26/jobs
+    enabled: true
+
+  - name: Stripe
+    careers_url: https://job-boards.greenhouse.io/stripe
+    api: https://boards-api.greenhouse.io/v1/boards/stripe/jobs
+    enabled: true
+
+  # -- Software and cloud companies --
+  - name: Datadog
+    careers_url: https://job-boards.greenhouse.io/datadog
+    api: https://boards-api.greenhouse.io/v1/boards/datadog/jobs
+    enabled: true
+
+  - name: Cloudflare
+    careers_url: https://job-boards.greenhouse.io/cloudflare
+    api: https://boards-api.greenhouse.io/v1/boards/cloudflare/jobs
+    enabled: true
+
+  - name: MongoDB
+    careers_url: https://job-boards.greenhouse.io/mongodb
+    api: https://boards-api.greenhouse.io/v1/boards/mongodb/jobs
+    enabled: true
+
+  - name: Elastic
+    careers_url: https://job-boards.greenhouse.io/elastic
+    api: https://boards-api.greenhouse.io/v1/boards/elastic/jobs
+    enabled: true
+
+  - name: GitLab
+    careers_url: https://job-boards.greenhouse.io/gitlab
+    api: https://boards-api.greenhouse.io/v1/boards/gitlab/jobs
+    enabled: true
+
+  - name: trivago
+    careers_url: https://job-boards.greenhouse.io/trivago
+    api: https://boards-api.greenhouse.io/v1/boards/trivago/jobs
+    enabled: true
+
+  - name: Spotify
+    careers_url: https://jobs.lever.co/spotify
+    enabled: true

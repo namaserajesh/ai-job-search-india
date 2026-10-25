@@ -1,0 +1,72 @@
+# India Fresher Pack: starter for config/profile.yml
+# career-ops copies this when it sets you up. Replace every [BRACKET] with your
+# own details; delete a line rather than guess. Full list of settings:
+# config/profile.example.yml in your career-ops folder.
+
+candidate:
+  full_name: "[Your full name]"
+  title: "[e.g. Aspiring Software Engineer]"
+  email: "[your email]"
+  phone: "[+91 ...]"
+  location: "[City], [State], India"
+  linkedin: "[linkedin.com/in/...]"
+  portfolio_url: ""
+  github: "[github.com/...]"
+  photo: ""   # leave empty: Indian IT and global ATS forms don't need a photo
+
+target_roles:
+  primary:
+    - "Software Development Engineer (SDE-1)"
+    - "Associate Software Engineer"
+    - "Graduate Engineer Trainee - Software"
+  archetypes:
+    - name: "SDE-1 / Backend or Full-stack"
+      level: "Entry level (fresher, 0-1 years)"
+      fit: "primary"
+    - name: "Frontend Engineer"
+      level: "Entry level"
+      fit: "secondary"
+    - name: "QA / SDET"
+      level: "Entry level"
+      fit: "adjacent"
+
+narrative:
+  headline: "[One line: degree, year, what you build]"
+  exit_story: "[2 sentences: your internship or best project, and the role you want next]"
+  superpowers:
+    - "[Skill backed by a project]"
+    - "[Skill backed by a project]"
+  proof_points:
+    - name: "[Project or internship]"
+      url: ""
+      hero_metric: "[A real number from your CV, e.g. users, speed-up, problems solved]"
+
+compensation:
+  target_range: "[e.g. ₹5-8 LPA]"   # CTC, in lakh per annum
+  currency: "INR"
+  minimum: "[e.g. ₹3.5 LPA]"        # walk-away CTC
+  location_flexibility: "[e.g. Pune preferred; open to Bengaluru, Hyderabad]"
+
+location:
+  country: "India"
+  city: "[City]"
+  timezone: "IST"
+  visa_status: "Indian citizen; needs a work visa for roles outside India"
+  authorized_in: ["India"]
+  needs_sponsorship: true   # true = any role outside India needs visa sponsorship
+
+language:
+  output: en
+
+spend_tier: standard
+page_format: a4
+
+cv:
+  output_format: "html"
+
+cover_letter:
+  notice_period_days: 0
+  primary_domain: "software engineering (fresher)"
+
+# Only roles scoring 4.0 or more get a tailored PDF automatically.
+auto_pdf_score_threshold: 4.0

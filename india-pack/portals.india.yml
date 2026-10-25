@@ -1,0 +1,279 @@
+# market: india
+# India Fresher Pack: portal list for INDIA (entry-level software roles).
+# Switch markets with:  node india-pack/switch-market.mjs abroad   (or india)
+#
+# Built from templates/portals.example.yml (career-ops v1.38.0). That file
+# documents every option and has hundreds more companies to copy in.
+# Company boards below were checked live on 2026-10-25: each returned open
+# postings. A full scan of this list took about 9 minutes that day; scan one
+# company with:  node scan.mjs --company Amazon
+#
+# Naukri, LinkedIn, Glassdoor, Instahyre, Internshala and campus drives can't
+# be scanned automatically. Find jobs there yourself and paste the link (or
+# the job description text) into /career-ops.
+
+location_filter:
+  allow:
+    - "India"
+    - "Pune"
+    - "Bengaluru"
+    - "Bangalore"
+    - "Hyderabad"
+    - "Mumbai"
+    - "Gurugram"
+    - "Noida"
+    - "Chennai"
+    - "Kolkata"
+    - "Ahmedabad"
+    - "Kochi"
+    - "Coimbatore"
+    - "Nagpur"
+  # "Remote" is left out on purpose: it let in remote roles from Poland and
+  # Sydney during the 2026-10-25 test. India-remote roles still say "India".
+  remote_title_fallback: false
+
+title_filter:
+  positive:
+    - "Software Engineer"
+    - "Software Development Engineer"
+    - "word:SDE"
+    - "Associate Engineer"
+    - "Associate Software"
+    - "Graduate Engineer"
+    - "Graduate Trainee"
+    - "Engineer Trainee"
+    - "Fresher"
+    - "New Grad"
+    - "Campus"
+    - "Backend"
+    - "Back End"
+    - "Full Stack"
+    - "Fullstack"
+    - "Frontend"
+    - "Front End"
+    - "SDET"
+    - "QA Engineer"
+    - "Test Engineer"
+    - "Software Intern"
+    - "Software Engineer Intern"
+    - "Software Engineering Intern"
+    - "SDE Intern"
+    - "Software Developer Intern"
+  negative:
+    - "word:II"
+    - "word:III"
+    - "word:IV"
+    - "Senior"
+    - "word:Sr"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Manager"
+    - "Director"
+    - "Architect"
+    - "Head of"
+    - "word:VP"
+    - "Vice President"
+    - "word:AVP"
+    - "Officer"
+    - "Recruiter"
+  seniority_boost:
+    - "Fresher"
+    - "New Grad"
+    - "Graduate"
+    - "Associate"
+    - "Trainee"
+
+# Web-search discovery, run by the AI during /career-ops scan (costs tokens).
+# Tested 2026-10-25: the web search ignored the site: filter and returned mostly
+# 2021-era posts and aggregator pages, so every query is switched off. For
+# Naukri, LinkedIn, Instahyre, Foundit etc., paste the job link (or the job
+# description text, when LinkedIn hides it behind a login) into /career-ops.
+search_queries:
+  - name: Greenhouse and Lever - India fresher SDE
+    query: 'site:boards.greenhouse.io OR site:jobs.lever.co ("Software Engineer" OR "SDE") ("fresher" OR "new grad" OR "0-1 years") India'
+    enabled: false
+
+  - name: Pune entry-level software roles
+    query: '("Software Engineer" OR "Associate Software Engineer") ("fresher" OR "entry level" OR "2026 batch" OR "2027 batch") Pune'
+    enabled: false
+
+  - name: Naukri - fresher software engineer, Pune
+    query: 'site:naukri.com/job-listings ("Software Engineer" OR "Software Developer" OR "SDE") ("fresher" OR "0-1" OR "0 to 1") Pune'
+    enabled: false
+
+  - name: LinkedIn - entry-level software engineer, Pune
+    query: 'site:linkedin.com/jobs/view ("Software Engineer" OR "SDE") ("entry level" OR "fresher" OR "new grad" OR "graduate") Pune'
+    enabled: false
+
+  - name: Instahyre - fresher software roles
+    query: 'site:instahyre.com/job ("Software Engineer" OR "Software Developer") ("fresher" OR "0-1 years") (Pune OR Bangalore OR Bengaluru)'
+    enabled: false
+
+  - name: Wellfound and Cutshort - startup SDE roles in India
+    query: '(site:wellfound.com/jobs OR site:cutshort.io/job) ("Software Engineer" OR "SDE") ("fresher" OR "entry level" OR "0-1") (Pune OR Bangalore OR Bengaluru)'
+    enabled: false
+
+  - name: Foundit - fresher software engineer
+    query: 'site:foundit.in/job ("Software Engineer" OR "Software Developer") ("fresher" OR "0-1 years") Pune'
+    enabled: false
+
+  - name: Internshala - software development internships and fresher jobs
+    query: 'site:internshala.com ("software development" OR "web development" OR "backend") (internship OR "fresher job") Pune'
+    enabled: false
+
+tracked_companies:
+
+  # -- Pune --
+  - name: Druva
+    careers_url: https://job-boards.greenhouse.io/druva
+    api: https://boards-api.greenhouse.io/v1/boards/druva/jobs
+    notes: "Data protection SaaS. Large Pune engineering office."
+    enabled: true
+
+  - name: PubMatic
+    careers_url: https://job-boards.greenhouse.io/pubmatic
+    api: https://boards-api.greenhouse.io/v1/boards/pubmatic/jobs
+    notes: "Ad-tech. Pune is its biggest location by open roles."
+    enabled: true
+
+  - name: Mindtickle
+    careers_url: https://jobs.lever.co/mindtickle
+    notes: "Sales-enablement SaaS. Pune headquarters."
+    enabled: true
+
+  - name: Google
+    careers_url: https://www.google.com/about/careers/applications/jobs/results/
+    provider: google
+    google:
+      location: "India"
+      queries: ["software engineer", "early career software"]
+    notes: "Google's own careers site: newest ~20 postings per query (Google's robots.txt allows only the first results page). Also lists YouTube and other Alphabet roles."
+    enabled: true
+
+  # -- Big tech and global firms (India roles only, via location_filter) --
+  # All tested 2026-10-25 with career-ops' own scanner; the number is the
+  # fresher-fit India roles found that day. Accenture (2,920 hits, nearly all
+  # experienced "Custom Software Engineer"), Atlassian (no India roles),
+  # JPMorgan, ServiceNow, Freshworks, Cadence and Thoughtworks (0 each) were
+  # tested and left out.
+  - name: Microsoft
+    careers_url: https://microsoft.eightfold.ai/careers?domain=microsoft.com
+    provider: eightfold
+    notes: "4 India roles on 2026-10-25. Large global board: the slowest company in the scan."
+    enabled: true
+
+  - name: Amazon
+    careers_url: https://www.amazon.jobs/en/
+    provider: amazon
+    amazon:
+      normalized_country_code: ["IND"]
+      category: software-development
+    notes: "62 India SDE roles on 2026-10-25, many SDE I. Shows Amazon's India company names (ADCI = Amazon Development Centre India)."
+    enabled: true
+
+  - name: NVIDIA
+    careers_url: https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite
+    notes: "Pune and Bengaluru offices. Large board, slow to scan."
+    enabled: true
+
+  - name: IBM
+    careers_url: https://www.ibm.com/careers/search
+    provider: ibm
+    ibm:
+      country: India
+    notes: "7 India roles on 2026-10-25, several in Pune."
+    enabled: true
+
+  - name: Salesforce
+    careers_url: https://salesforce.wd12.myworkdayjobs.com/External_Career_Site
+    enabled: true
+
+  - name: Intel
+    careers_url: https://intel.wd1.myworkdayjobs.com/External
+    enabled: true
+
+  - name: Adobe
+    careers_url: https://adobe.wd5.myworkdayjobs.com/external_experienced
+    enabled: true
+
+  - name: Bosch
+    careers_url: https://jobs.smartrecruiters.com/BoschGroup
+    notes: "22 India roles on 2026-10-25, several in Pune."
+    enabled: true
+
+  # -- Banks and fintech with big Pune tech centres --
+  - name: Citi
+    careers_url: https://citi.wd5.myworkdayjobs.com/2
+    notes: "45 India roles on 2026-10-25. Very large board, slow to scan."
+    enabled: true
+
+  - name: Deutsche Bank
+    careers_url: https://db.wd3.myworkdayjobs.com/DBWebsite
+    enabled: true
+
+  - name: Mastercard
+    careers_url: https://mastercard.wd1.myworkdayjobs.com/CorporateCareers
+    enabled: true
+
+  - name: BNY
+    careers_url: https://eofe.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/BNY
+    enabled: true
+
+  - name: Paytm
+    careers_url: https://jobs.lever.co/paytm
+    enabled: true
+
+  # -- Indian IT services --
+  # TCS, Infosys, Cognizant, Tech Mahindra, Capgemini, LTIMindtree, Persistent,
+  # KPIT and Cybage run their own career sites that career-ops cannot read;
+  # paste their job links into /career-ops instead.
+  - name: Wipro
+    careers_url: https://careers.wipro.com
+    provider: successfactors
+    notes: "Included a Graduate Engineer Trainee role on 2026-10-25."
+    enabled: true
+
+  - name: HCLTech
+    careers_url: https://careers.hcltech.com
+    provider: successfactors
+    notes: "Included a Campus role on 2026-10-25."
+    enabled: true
+
+  - name: Synechron
+    careers_url: https://synechron.wd1.myworkdayjobs.com/SynechronCareers
+    notes: "Large Pune offices (Hinjewadi, Kharadi)."
+    enabled: true
+
+  - name: Zensar
+    careers_url: https://fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1
+    notes: "Pune headquarters."
+    enabled: true
+
+  # -- Bengaluru / other metros --
+  - name: Rubrik
+    careers_url: https://job-boards.greenhouse.io/rubrik
+    api: https://boards-api.greenhouse.io/v1/boards/rubrik/jobs
+    notes: "Data security. Bengaluru engineering office."
+    enabled: true
+
+  - name: Groww
+    careers_url: https://job-boards.greenhouse.io/groww
+    api: https://boards-api.greenhouse.io/v1/boards/groww/jobs
+    notes: "Investing app. Bengaluru."
+    enabled: true
+
+  - name: Meesho
+    careers_url: https://jobs.lever.co/meesho
+    notes: "E-commerce. Bengaluru."
+    enabled: true
+
+  - name: Zeta
+    careers_url: https://jobs.lever.co/zeta
+    notes: "Banking tech. Bengaluru, Hyderabad, Mumbai."
+    enabled: true
+
+  - name: CRED
+    careers_url: https://jobs.lever.co/cred
+    notes: "Fintech. Bengaluru."
+    enabled: true
