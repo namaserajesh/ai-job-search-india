@@ -30,6 +30,14 @@ Prepared for the TKIET "Find a Dream Job Using AI" workshop. Built to work with 
 
 Claude Code needs a paid Claude plan. For free routes, read `docs/FREE_TIER.md` and `docs/RUNNING_ON_A_BUDGET.md` in your career-ops folder.
 
+**Updating career-ops later:** setup adds the market and level buttons to career-ops' own Explore page. Remove them before you update career-ops, then add them back:
+```
+node india-pack/setup.mjs --unpatch-dashboard
+node update-system.mjs apply --confirm
+node india-pack/setup.mjs
+```
+Skip the buttons entirely with `node india-pack/setup.mjs --no-dashboard`; the terminal switch still works.
+
 ## 2. Use it every day
 
 | You want to | Do this |
@@ -45,6 +53,10 @@ Claude Code needs a paid Claude plan. For free routes, read `docs/FREE_TIER.md` 
 **Portal search, honestly:** Naukri, LinkedIn and Glassdoor don't allow automated scraping, and LinkedIn restricts accounts it thinks are bots. The pack keeps portal search small (one site, 2 pages, 10 jobs), on request only, with you signed in and watching; it stops at any CAPTCHA and never clicks Apply. Never run it on a schedule, and never use any tool that applies for you. The risk to your account is yours.
 
 ## 3. Choose market and level
+
+**In the dashboard:** open `npm run ui`, go to **Explore**, and use the **Job scan setting** card at the top: **India / Abroad** and **Fresher / Experienced / All levels**. The filters below it follow your choice straight away.
+
+**Or in a terminal:**
 
 ```
 node india-pack/switch-market.mjs india          (or abroad)
@@ -96,6 +108,7 @@ Always read the **Verdict** line at the top of each report first.
 |---|---|
 | `india-pack/setup.mjs` | One-time install (`experienced` for experienced professionals) |
 | `india-pack/switch-market.mjs` | Market and level switch |
+| `india-pack/dashboard/explore-switch.tsx.txt` | The dashboard's Job scan setting card (added to the Explore page by setup) |
 | `india-pack/custom-rules.md` | The India checks (copied into `modes/_custom.md` by setup) |
 | `india-pack/lists/` | Building blocks for the scan list: locations (India, Abroad), job titles (fresher, experienced, all), companies (India, Abroad) |
 | `india-pack/starter/fresher/` | Fresher profile, targeting notes and one-page CV template |

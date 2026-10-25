@@ -1,0 +1,101 @@
+// india-pack:start
+// AI Job Search India: market and level buttons for the Explore page.
+// Added by `node india-pack/setup.mjs`. Before updating career-ops, remove it
+// with `node india-pack/setup.mjs --unpatch-dashboard`, then run setup again.
+const INDIA_PACK_MARKETS = ["india", "abroad"] as const;
+const INDIA_PACK_LEVELS = ["fresher", "experienced", "all"] as const;
+
+async function indiaPackSwitchScan(formData: FormData) {
+  "use server";
+  const [market, level] = String(formData.get("combo") ?? "").split(":");
+  if (!(INDIA_PACK_MARKETS as readonly string[]).includes(market) || !(INDIA_PACK_LEVELS as readonly string[]).includes(level)) return;
+  const { careerOpsRoot } = await import("@/lib/career-ops");
+  const { execFileSync } = await import("node:child_process");
+  const path = await import("node:path");
+  const root = careerOpsRoot();
+  execFileSync(process.execPath, [path.join(root, "india-pack", "switch-market.mjs"), market, level], { cwd: root, timeout: 20000 });
+  const { revalidatePath } = await import("next/cache");
+  revalidatePath("/explore");
+}
+
+async function indiaPackSetting() {
+  const fs = await import("node:fs");
+  const path = await import("node:path");
+  const { careerOpsRoot } = await import("@/lib/career-ops");
+  const root = careerOpsRoot();
+  const installed = fs.existsSync(path.join(root, "india-pack", "switch-market.mjs"));
+  let market = "";
+  let level = "";
+  try {
+    const m = fs.readFileSync(path.join(root, "portals.yml"), "utf8").match(/^# market: (\w+)(?: level: (\w+))?/);
+    market = m ? m[1] : "custom";
+    level = m ? m[2] || "fresher" : "";
+  } catch {
+    /* no portals.yml yet */
+  }
+  return { installed, market, level };
+}
+
+function IndiaPackSwitch({ market, level }: { market: string; level: string }) {
+  const label: Record<string, string> = { india: "India", abroad: "Abroad", fresher: "Fresher", experienced: "Experienced", all: "All levels" };
+  // Same column, card and colour tokens as the Explore view below it.
+  const pill = (active: boolean) =>
+    `inline-flex min-h-9 items-center rounded-full border px-4 text-sm transition-colors max-sm:min-h-11 ${
+      active
+        ? "border-brand/40 bg-brand-soft font-semibold text-brand-text"
+        : "border-border text-muted hover:border-foreground/30 hover:text-foreground"
+    }`;
+  const groupLabel = "mt-2.5 w-16 shrink-0 text-xs font-semibold uppercase tracking-wide text-muted max-sm:mt-3.5";
+  const keepLevel = INDIA_PACK_LEVELS.includes(level as never) ? level : "fresher";
+  const keepMarket = INDIA_PACK_MARKETS.includes(market as never) ? market : "india";
+  return (
+    <div className="mx-auto max-w-5xl px-5 pt-8 md:px-8">
+      <form action={indiaPackSwitchScan} className="rounded-xl border border-border bg-surface/30 px-5 py-4 md:px-6">
+        <p className="mb-3 text-sm font-medium text-foreground">Job scan setting</p>
+        <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:gap-x-10">
+          <div className="flex items-start gap-3" role="group" aria-label="Market">
+            <span className={groupLabel}>Market</span>
+            <div className="flex flex-wrap gap-2">
+              {INDIA_PACK_MARKETS.map((m) => (
+                <button key={m} type="submit" name="combo" value={`${m}:${keepLevel}`} aria-pressed={m === market} className={pill(m === market)}>
+                  {label[m]}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-start gap-3" role="group" aria-label="Level">
+            <span className={groupLabel}>Level</span>
+            <div className="flex flex-wrap gap-2">
+              {INDIA_PACK_LEVELS.map((l) => (
+                <button key={l} type="submit" name="combo" value={`${keepMarket}:${l}`} aria-pressed={l === level} className={pill(l === level)}>
+                  {label[l]}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+        <p className="mt-3 text-xs leading-relaxed text-muted">
+          {market && market !== "custom"
+            ? "Sets which companies, places and job titles the scan and the filters below use."
+            : "Your portals.yml is your own; choosing a setting saves it first, then switches."}
+        </p>
+      </form>
+    </div>
+  );
+}
+
+// The key makes the filter panel below start fresh from portals.yml whenever
+// the market or level changes, instead of keeping the previous filters.
+export default async function ExplorePage() {
+  const { installed, market, level } = await indiaPackSetting();
+  if (!installed) return ExplorePageOriginal();
+  return (
+    <>
+      <IndiaPackSwitch market={market} level={level} />
+      <div key={`${market}-${level}`} className="contents">
+        {ExplorePageOriginal()}
+      </div>
+    </>
+  );
+}
+// india-pack:end
