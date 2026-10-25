@@ -55,13 +55,15 @@ node india-pack/switch-market.mjs status
 
 | Setting | What the scan looks for |
 |---|---|
-| **india** | 26 companies tested on 25 October 2026, India locations only: Amazon, Microsoft, Google, NVIDIA, IBM, Salesforce, Intel, Adobe, Bosch, Citi, Deutsche Bank, Mastercard, BNY, Paytm, Wipro, HCLTech, Synechron, Zensar, Druva, PubMatic, Mindtickle, Rubrik, Groww, Meesho, Zeta and CRED. Accenture is in the list but switched off (about 2,900 openings); turn it on in `portals.yml` if you want it |
+| **india** | 51 job boards tested on 25 October 2026, India locations only. **Big tech:** Amazon, Microsoft, Google, NVIDIA, IBM, Salesforce, Intel, Adobe, Cisco, AMD, Databricks. **IT services:** Wipro, HCLTech, Synechron, Zensar, Hexaware, Birlasoft. **Tech centres in India:** Barclays, Citi, Deutsche Bank, Mastercard, BNY, Standard Chartered, FIS, Nasdaq, Bosch, Siemens, Mercedes-Benz R&D, Caterpillar, Texas Instruments, NXP, Analog Devices, eBay, Optum, Vodafone VOIS. **Indian companies and startups:** Paytm, Druva, PubMatic, Mindtickle, Rubrik, Groww, Meesho, Zeta, CRED, Sarvam AI, HackerRank. **Startup-investor job boards** (each lists jobs at many portfolio startups): Peak XV, Lightspeed, Accel, 3one4 Capital, Omnivore. Accenture and Applied Materials are in the list but switched off (huge or slow boards); turn them on in `portals.yml` if you want them |
 | **abroad** | 22 global companies (Amazon, Atlassian, Stripe, Spotify, Datadog and others) in Singapore, the UAE, Europe, the UK, Japan, Canada and Australia. India is blocked. The United States is left out on purpose |
 | **fresher** | Entry-level, graduate and internship software titles; senior titles blocked |
 | **experienced** | Software, data, cloud, QA, architect, lead and manager titles; internship and entry-level titles skipped by career-ops' seniority check |
 | **all** | Both |
 
 How big the difference is: on 25 October 2026, Mastercard's India board gave 4 fresher roles and 149 experienced roles.
+
+**Can't be scanned automatically** (paste their job links instead): TCS, Infosys, Cognizant, Tech Mahindra, Capgemini, LTIMindtree, Persistent, Mphasis, Coforge, KPIT, Cybage, L&T Technology Services, Cyient, Tata Elxsi, Tata Technologies, Goldman Sachs, Walmart, SAP and others run their own career sites or block automated reading.
 
 Each setting keeps your own additions: switching saves your current list as `india-pack/my-portals.<market>-<level>.yml` and restores it when you come back. To get the pack's latest company lists after an update, delete your `my-portals` file for that setting and switch again.
 

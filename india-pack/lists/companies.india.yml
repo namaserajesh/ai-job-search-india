@@ -195,3 +195,175 @@ tracked_companies:
     careers_url: https://jobs.lever.co/cred
     notes: "Fintech. Bengaluru."
     enabled: true
+
+  # New boards tested 2026-10-25 with career-ops' own scanner (dry run, India
+  # location_filter + fresher title_filter). The number in each note is the
+  # fresher-fit India roles found that day ("new" + duplicates skipped).
+
+  # -- Indian IT services --
+  - name: Hexaware
+    careers_url: https://fa-etqo-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1
+    notes: "Oracle Recruiting Cloud (jobs.hexaware.com). 3 India roles on 2026-10-25 (SDET test analysts)."
+    enabled: true
+
+  - name: Birlasoft
+    careers_url: https://jobs.birlasoft.com
+    provider: successfactors
+    api: https://jobs.birlasoft.com
+    notes: "SuccessFactors board. 7 India roles on 2026-10-25, mostly Pune full-stack developers."
+    enabled: true
+
+  # -- GCCs and global tech centres in India --
+  - name: Barclays
+    careers_url: https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays
+    notes: "23 India roles on 2026-10-25, many in Pune (Gera Commerzone) and Chennai."
+    enabled: true
+
+  - name: Cisco
+    careers_url: https://careers.cisco.com
+    provider: phenom
+    notes: "89 India roles on 2026-10-25 (54 new + 35 duplicate reqs), Bengaluru. Many titles say '4-8 Years' or '8+ yrs': check experience before applying."
+    enabled: true
+
+  - name: Texas Instruments
+    careers_url: https://edbz.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX
+    notes: "11 India roles on 2026-10-25 (Bengaluru), including 'Career Accelerator Program' entry-level roles."
+    enabled: true
+
+  - name: eBay
+    careers_url: https://ebay.wd5.myworkdayjobs.com/apply
+    notes: "15 India roles on 2026-10-25 (Bengaluru), e.g. MTS 1 Software Engineer."
+    enabled: true
+
+  - name: Standard Chartered
+    careers_url: https://jobs.standardchartered.com
+    provider: successfactors
+    api: https://jobs.standardchartered.com
+    notes: "5 India roles on 2026-10-25 (Bengaluru, Chennai)."
+    enabled: true
+
+  - name: Mercedes-Benz
+    careers_url: https://mercedes-benz-beesite-production-gjb.app.beesite.de
+    provider: beesite
+    notes: "9 India roles on 2026-10-25 (MBRDI Bengaluru). BeeSite backend of jobs.mercedes-benz.com."
+    enabled: true
+
+  - name: Caterpillar
+    careers_url: https://cat.wd5.myworkdayjobs.com/CaterpillarCareers
+    notes: "6 India roles on 2026-10-25 (Bengaluru, Chennai). About 60 seconds to scan."
+    enabled: true
+
+  - name: Siemens
+    careers_url: https://jobs.siemens.com/en_US/externaljobs/SearchJobs
+    provider: avature
+    api: https://jobs.siemens.com/en_US/externaljobs/SearchJobs?search=India+software
+    max_pages: 70
+    notes: "17 India roles on 2026-10-25, several in Pune. Search narrowed to 'India software' (~380 postings). Slow: about 2 minutes."
+    enabled: true
+
+  - name: Optum (UnitedHealth Group)
+    careers_url: https://careers.unitedhealthgroup.com/search-jobs
+    provider: radancy
+    api: https://careers.unitedhealthgroup.com/search-jobs
+    max_jobs: 6000
+    max_pages: 70
+    notes: "6 India roles on 2026-10-25 (Pune, Hyderabad). Large global board: about 75 seconds."
+    enabled: true
+
+  - name: AMD
+    careers_url: https://careers.amd.com/careers-home/jobs
+    provider: jibeapply
+    api: https://careers.amd.com/api/jobs?country=India
+    notes: "4 India roles on 2026-10-25 (Hyderabad, Bengaluru). Reads India postings only."
+    enabled: true
+
+  - name: FIS
+    careers_url: https://fis.wd5.myworkdayjobs.com/SearchJobs
+    notes: "3 India roles on 2026-10-25, all Pune."
+    enabled: true
+
+  - name: NXP
+    careers_url: https://nxp.wd3.myworkdayjobs.com/careers
+    notes: "5 India roles on 2026-10-25 (Noida, Hyderabad); some say 'Experienced'."
+    enabled: true
+
+  - name: Nasdaq
+    careers_url: https://nasdaq.wd1.myworkdayjobs.com/Global_External_Site
+    notes: "2 India roles on 2026-10-25 (Bengaluru, Mumbai)."
+    enabled: true
+
+  - name: Analog Devices
+    careers_url: https://analogdevices.wd1.myworkdayjobs.com/External
+    notes: "2 India roles on 2026-10-25 (Bengaluru). About 50 seconds to scan."
+    enabled: true
+
+  - name: Vodafone (VOIS)
+    careers_url: https://vodafone.eightfold.ai/careers?domain=vodafone.com
+    provider: eightfold
+    notes: "3 India roles on 2026-10-25 (VOIS Pune, Bengaluru). Slow: about 2 minutes."
+    enabled: true
+
+  - name: Applied Materials
+    careers_url: https://amat.wd1.myworkdayjobs.com/External
+    notes: "Off by default: 6 India roles on 2026-10-25 (Bengaluru), but slow (about 2 minutes) and only partly read. Set enabled: true to include it."
+    enabled: false
+
+  # -- Indian product companies and startups --
+  - name: Sarvam AI
+    careers_url: https://jobs.ashbyhq.com/sarvam
+    notes: "3 roles on 2026-10-25. All 44 postings are in Bengaluru."
+    enabled: true
+
+  - name: HackerRank
+    careers_url: https://job-boards.greenhouse.io/hackerrank
+    api: https://boards-api.greenhouse.io/v1/boards/hackerrank/jobs
+    notes: "1 role on 2026-10-25: SDE Intern, Bengaluru."
+    enabled: true
+
+  - name: Databricks
+    careers_url: https://job-boards.greenhouse.io/databricks
+    api: https://boards-api.greenhouse.io/v1/boards/databricks/jobs
+    notes: "2 Bengaluru roles on 2026-10-25 (one is SDE 2)."
+    enabled: true
+
+  # -- Startup job boards (VC portfolios) --
+  # One entry reads jobs from many portfolio startups. aggregator: true keeps
+  # duplicate checks per posting URL, since many companies share one board.
+  - name: Peak XV (portfolio)
+    provider: consider
+    consider_board: sequoia-capital-india
+    consider_size: 1000
+    careers_url: https://careers.peakxv.com/jobs
+    aggregator: true
+    notes: "Peak XV (ex-Sequoia India). 30 India roles on 2026-10-25 (Khatabook, Groww, Multiplier, OneScore...). consider_size above 1000 returns HTTP 500."
+    enabled: true
+
+  - name: 3one4 Capital (portfolio)
+    provider: getro
+    careers_url: https://jobs.3one4capital.com/jobs
+    aggregator: true
+    notes: "Bengaluru VC. 12 India roles on 2026-10-25, incl. software interns and a Graduate Engineer Trainee."
+    enabled: true
+
+  - name: Lightspeed (portfolio)
+    provider: consider
+    consider_board: lightspeed
+    consider_size: 1000
+    careers_url: https://jobs.lsvp.com/jobs
+    aggregator: true
+    notes: "Global Lightspeed board. 7 India roles on 2026-10-25 (Zepto, Sarvam, Rippling...). consider_size above 1000 returns HTTP 500."
+    enabled: true
+
+  - name: Accel (portfolio)
+    provider: getro
+    careers_url: https://jobs.accel.com/jobs
+    aggregator: true
+    notes: "Global Accel board, newest 800 jobs. 8 India roles on 2026-10-25. getro_max_pages: 150 found 27 but took 85 seconds."
+    enabled: true
+
+  - name: Omnivore (portfolio)
+    provider: getro
+    careers_url: https://jobs.omnivore.vc/jobs
+    aggregator: true
+    notes: "Agri/food-tech VC. 4 India roles on 2026-10-25 (Pixxel, Ecozen)."
+    enabled: true
