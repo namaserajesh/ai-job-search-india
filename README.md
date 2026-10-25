@@ -35,11 +35,14 @@ Claude Code needs a paid Claude plan. For free routes, read `docs/FREE_TIER.md` 
 | You want to | Do this |
 |---|---|
 | Check one job | Find it on Naukri, LinkedIn, Glassdoor, Instahyre, Internshala or a campus notice. Paste the link (or the job description text) after `/career-ops` |
+| Let the AI search a job portal with you | Open the portal in the browser your AI tool can see (for example Claude in Chrome), sign in yourself, then ask: *"portal search: fresher Java jobs in Pune on Naukri, last 7 days"*. It reads up to 2 pages / 10 jobs, adds them to your inbox and asks which to evaluate. See the warning below |
 | See new jobs at big companies | `/career-ops scan`, or preview one company fast: `node scan.mjs --company Amazon --dry-run` |
 | See all your applications | `/career-ops tracker`, or the dashboard: `npm --prefix web ci` once, then `npm run ui` |
 | Practise for an interview | `/career-ops interview-prep` |
 
 **Most jobs are not in the automatic scan.** It reads company career sites, not job portals. On 25 October 2026 the fresher scan read 22,740 jobs at 26 big companies and found only 10 clearly entry-level roles in India, while Naukri listed 217 fresher software jobs in Pune alone. Use the job portals to *find* jobs and career-ops to *check, tailor and track* them.
+
+**Portal search, honestly:** Naukri, LinkedIn and Glassdoor don't allow automated scraping, and LinkedIn restricts accounts it thinks are bots. The pack keeps portal search small (one site, 2 pages, 10 jobs), on request only, with you signed in and watching; it stops at any CAPTCHA and never clicks Apply. Never run it on a schedule, and never use any tool that applies for you. The risk to your account is yours.
 
 ## 3. Choose market and level
 

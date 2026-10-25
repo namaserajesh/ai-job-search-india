@@ -114,6 +114,42 @@ India" when the job is not in India. State the stage used in Block A.
     threshold or timeline that is not in the JD or an official government
     source read in this session.
 
+### Portal search (on request only)
+
+A custom workflow for Naukri, LinkedIn, Glassdoor, Indeed, Instahyre,
+Internshala, Foundit and Google Jobs. These sites can't be scanned
+automatically and their terms forbid automated scraping, so this runs only
+in a browser the user can see, at human pace, when the user asks in that
+session (for example: "portal search: fresher Java jobs in Pune on Naukri,
+last 7 days").
+
+17. **When.** Only on an explicit request in the current conversation. Never
+    on a schedule, in a batch, in a headless or delegated run, or as part of
+    `scan`. If a browser tool is not available, say so and stop.
+18. **Limits per request.** One site, at most 2 result pages, at most 10
+    jobs. Use the site's own search box and filters (role, city,
+    experience, posted date) rather than guessing result URLs.
+19. **Sign-in and blocks.** The user signs in themselves. Never type a
+    password, OTP or CAPTCHA answer, and never accept terms or cookie banners
+    beyond the privacy-preserving choice. On a CAPTCHA, login wall,
+    "unusual activity" page or rate-limit message, stop at once and tell the
+    user; don't retry or work around it.
+20. **What to collect.** For each matching job: the job page link, company,
+    role, location and the posted date shown. Skip listings that are
+    sponsored adverts for courses or paid services. Mark consultant listings
+    ("Posted by" a staffing firm, or employer hidden) in the location column
+    with "via {consultancy}" so the agency gate applies later.
+21. **Where it goes.** Add each job to `data/pipeline.md` under "## Pending"
+    as `- [ ] {url} | {company} | {role} | {location}`, after checking the URL
+    isn't already in `data/pipeline.md` or the tracker. Then show the user
+    the list as a table and ask which ones to evaluate. Evaluating uses the
+    normal `pipeline` or auto-pipeline flow; LinkedIn links follow the
+    project's LinkedIn loading guard (paste the job text if the page won't
+    load).
+22. **Never** click Apply, Easy Apply, Save, Follow, Message or Connect;
+    never fill a form; never change the user's profile or job alerts on the
+    site. Reading and copying links only.
+
 ### Output preferences
 
 - Write in Indian English. Show money as ₹ with lakh and crore, and salaries
