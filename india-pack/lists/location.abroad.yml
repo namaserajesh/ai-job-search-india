@@ -1,0 +1,40 @@
+location_filter:
+  allow:
+    - "Singapore"
+    - "United Arab Emirates"
+    - "UAE"
+    - "Dubai"
+    - "Abu Dhabi"
+    - "Germany"
+    - "Berlin"
+    - "Munich"
+    - "Netherlands"
+    - "Amsterdam"
+    - "Ireland"
+    - "Dublin"
+    - "United Kingdom"
+    - "London"
+    - "Poland"
+    - "Warsaw"
+    - "Japan"
+    - "Tokyo"
+    - "Canada"
+    - "Toronto"
+    - "Vancouver"
+    - "Australia"
+    - "Sydney"
+    - "Melbourne"
+  # India-based roles belong in the India list; block them here even when a
+  # posting names several countries.
+  block_hard:
+    - "India"
+    - "Bengaluru"
+    - "Bangalore"
+    - "Hyderabad"
+    - "Pune"
+    - "Gurugram"
+    - "Noida"
+    - "Chennai"
+    - "Mumbai"
+  remote_title_fallback: false
+

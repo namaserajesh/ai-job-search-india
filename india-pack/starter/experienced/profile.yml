@@ -1,0 +1,71 @@
+# AI Job Search India: starter (experienced) for config/profile.yml
+# career-ops copies this when it sets you up. Replace every [BRACKET] with your
+# own details; delete a line rather than guess. Full list of settings:
+# config/profile.example.yml in your career-ops folder.
+
+candidate:
+  full_name: "[Your full name]"
+  title: "[e.g. Senior Software Engineer]"   # only a title your experience supports
+  email: "[your email]"
+  phone: "[+91 ...]"
+  location: "[City], [State], India"
+  linkedin: "[linkedin.com/in/...]"
+  portfolio_url: ""
+  github: "[github.com/...]"
+  photo: ""   # leave empty unless the employer's country expects one
+
+target_roles:
+  primary:
+    - "[e.g. Senior Software Engineer]"
+    - "[e.g. Tech Lead]"
+  archetypes:
+    - name: "[e.g. Backend / Platform Engineer]"
+      level: "[e.g. Senior, 5-8 years]"
+      fit: "primary"
+    - name: "[e.g. Tech Lead]"
+      level: "[e.g. Lead]"
+      fit: "secondary"
+    - name: "[e.g. Engineering Manager]"
+      level: "[e.g. Manager]"
+      fit: "adjacent"
+
+narrative:
+  headline: "[One line: years of experience, domain, what you build]"
+  exit_story: "[2 sentences: what you do now, and why you're moving]"
+  superpowers:
+    - "[Strength backed by a result in your CV]"
+    - "[Strength backed by a result in your CV]"
+  proof_points:
+    - name: "[Project, product or system]"
+      url: ""
+      hero_metric: "[A real number from your CV: users, latency, cost saved, team size]"
+
+compensation:
+  target_range: "[your expected CTC, e.g. ₹X-Y LPA]"
+  currency: "INR"
+  minimum: "[your walk-away CTC, e.g. ₹X LPA]"
+  location_flexibility: "[e.g. Pune or Bengaluru; hybrid 3 days]"
+
+location:
+  country: "India"
+  city: "[City]"
+  timezone: "IST"
+  visa_status: "Indian citizen; needs a work visa for roles outside India"
+  authorized_in: ["India"]   # add any other country where you already hold work rights
+  needs_sponsorship: true    # true = roles outside authorized_in need visa sponsorship
+
+language:
+  output: en
+
+spend_tier: standard
+page_format: a4
+
+cv:
+  output_format: "html"
+
+cover_letter:
+  notice_period_days: 0   # replace 0 with your notice period in days
+  primary_domain: "[e.g. fintech backend engineering]"
+
+# Only roles scoring 4.0 or more get a tailored PDF automatically.
+auto_pdf_score_threshold: 4.0

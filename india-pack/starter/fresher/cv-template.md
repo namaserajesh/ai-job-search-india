@@ -1,6 +1,6 @@
 # CV -- [Your Full Name]
 
-<!-- India Fresher Pack CV template for cv.md. One page is enough for a
+<!-- AI Job Search India CV template (fresher) for cv.md. One page is enough for a
      fresher. Every line must be true: career-ops never adds skills you don't
      list here. Use real numbers only (users, speed-ups, problems solved). -->
 

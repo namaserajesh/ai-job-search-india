@@ -1,4 +1,4 @@
-# India Fresher Pack: starter for config/profile.yml
+# AI Job Search India: starter (fresher) for config/profile.yml
 # career-ops copies this when it sets you up. Replace every [BRACKET] with your
 # own details; delete a line rather than guess. Full list of settings:
 # config/profile.example.yml in your career-ops folder.
@@ -42,9 +42,9 @@ narrative:
       hero_metric: "[A real number from your CV, e.g. users, speed-up, problems solved]"
 
 compensation:
-  target_range: "[e.g. ₹5-8 LPA]"   # CTC, in lakh per annum
+  target_range: "[your expected CTC, e.g. ₹X-Y LPA]"   # CTC, in lakh per annum
   currency: "INR"
-  minimum: "[e.g. ₹3.5 LPA]"        # walk-away CTC
+  minimum: "[your walk-away CTC, e.g. ₹X LPA]"
   location_flexibility: "[e.g. Pune preferred; open to Bengaluru, Hyderabad]"
 
 location:

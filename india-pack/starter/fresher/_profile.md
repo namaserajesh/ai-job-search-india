@@ -1,8 +1,10 @@
 # User Profile Context -- career-ops
 
-<!-- India Fresher Pack starter for modes/_profile.md. Replace every
+<!-- AI Job Search India starter (fresher) for modes/_profile.md. Replace every
      [BRACKET]; keep only what is true for you. This file is yours and is
      never overwritten by career-ops updates. -->
+
+Career stage: fresher
 
 ## Your Target Roles
 
@@ -45,4 +47,4 @@ Use the exit story from `config/profile.yml`: a final-year student with real pro
 **In evaluations (scoring):**
 - [Home city] on-site or hybrid: full score on location
 - Other Indian metros: score **3.5** if willing to relocate
-- Roles outside India: follow the India Fresher Pack's Abroad rule (visa sponsorship first)
+- Roles outside India: follow the AI Job Search India Abroad rule (visa sponsorship first)

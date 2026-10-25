@@ -1,0 +1,20 @@
+location_filter:
+  allow:
+    - "India"
+    - "Pune"
+    - "Bengaluru"
+    - "Bangalore"
+    - "Hyderabad"
+    - "Mumbai"
+    - "Gurugram"
+    - "Noida"
+    - "Chennai"
+    - "Kolkata"
+    - "Ahmedabad"
+    - "Kochi"
+    - "Coimbatore"
+    - "Nagpur"
+  # "Remote" is left out on purpose: it let in remote roles from Poland and
+  # Sydney during the 2026-10-25 test. India-remote roles still say "India".
+  remote_title_fallback: false
+

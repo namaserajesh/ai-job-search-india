@@ -1,89 +1,3 @@
-# market: india
-# India Fresher Pack: portal list for INDIA (entry-level software roles).
-# Switch markets with:  node india-pack/switch-market.mjs abroad   (or india)
-#
-# Built from templates/portals.example.yml (career-ops v1.38.0). That file
-# documents every option and has hundreds more companies to copy in.
-# Company boards below were checked live on 2026-10-25: each returned open
-# postings. A full scan of this list took about 9 minutes that day; scan one
-# company with:  node scan.mjs --company Amazon
-#
-# Naukri, LinkedIn, Glassdoor, Instahyre, Internshala and campus drives can't
-# be scanned automatically. Find jobs there yourself and paste the link (or
-# the job description text) into /career-ops.
-
-location_filter:
-  allow:
-    - "India"
-    - "Pune"
-    - "Bengaluru"
-    - "Bangalore"
-    - "Hyderabad"
-    - "Mumbai"
-    - "Gurugram"
-    - "Noida"
-    - "Chennai"
-    - "Kolkata"
-    - "Ahmedabad"
-    - "Kochi"
-    - "Coimbatore"
-    - "Nagpur"
-  # "Remote" is left out on purpose: it let in remote roles from Poland and
-  # Sydney during the 2026-10-25 test. India-remote roles still say "India".
-  remote_title_fallback: false
-
-title_filter:
-  positive:
-    - "Software Engineer"
-    - "Software Development Engineer"
-    - "word:SDE"
-    - "Associate Engineer"
-    - "Associate Software"
-    - "Graduate Engineer"
-    - "Graduate Trainee"
-    - "Engineer Trainee"
-    - "Fresher"
-    - "New Grad"
-    - "Campus"
-    - "Backend"
-    - "Back End"
-    - "Full Stack"
-    - "Fullstack"
-    - "Frontend"
-    - "Front End"
-    - "SDET"
-    - "QA Engineer"
-    - "Test Engineer"
-    - "Software Intern"
-    - "Software Engineer Intern"
-    - "Software Engineering Intern"
-    - "SDE Intern"
-    - "Software Developer Intern"
-  negative:
-    - "word:II"
-    - "word:III"
-    - "word:IV"
-    - "Senior"
-    - "word:Sr"
-    - "Staff"
-    - "Principal"
-    - "Lead"
-    - "Manager"
-    - "Director"
-    - "Architect"
-    - "Head of"
-    - "word:VP"
-    - "Vice President"
-    - "word:AVP"
-    - "Officer"
-    - "Recruiter"
-  seniority_boost:
-    - "Fresher"
-    - "New Grad"
-    - "Graduate"
-    - "Associate"
-    - "Trainee"
-
 # Web-search discovery, run by the AI during /career-ops scan (costs tokens).
 # Tested 2026-10-25: the web search ignored the site: filter and returned mostly
 # 2021-era posts and aggregator pages, so every query is switched off. For
@@ -152,11 +66,10 @@ tracked_companies:
     enabled: true
 
   # -- Big tech and global firms (India roles only, via location_filter) --
-  # All tested 2026-10-25 with career-ops' own scanner; the number is the
-  # fresher-fit India roles found that day. Accenture (2,920 hits, nearly all
-  # experienced "Custom Software Engineer"), Atlassian (no India roles),
-  # JPMorgan, ServiceNow, Freshworks, Cadence and Thoughtworks (0 each) were
-  # tested and left out.
+  # All tested 2026-10-25 with career-ops' own scanner; counts in notes are
+  # fresher-fit India roles found that day (experienced counts are higher).
+  # Atlassian (no India roles), JPMorgan, ServiceNow, Freshworks, Cadence and
+  # Thoughtworks (0 fresher roles each) were tested and left out.
   - name: Microsoft
     careers_url: https://microsoft.eightfold.ai/careers?domain=microsoft.com
     provider: eightfold
@@ -228,6 +141,11 @@ tracked_companies:
   # TCS, Infosys, Cognizant, Tech Mahindra, Capgemini, LTIMindtree, Persistent,
   # KPIT and Cybage run their own career sites that career-ops cannot read;
   # paste their job links into /career-ops instead.
+  - name: Accenture
+    careers_url: https://accenture.wd103.myworkdayjobs.com/AccentureCareers
+    notes: "Off by default: about 2,900 India 'Custom Software Engineer' openings on 2026-10-25, mostly for experienced people, and a slow scan. Set enabled: true if you target Accenture."
+    enabled: false
+
   - name: Wipro
     careers_url: https://careers.wipro.com
     provider: successfactors
