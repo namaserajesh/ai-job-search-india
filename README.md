@@ -1,5 +1,10 @@
 # AI Job Search India
 
+[![Smoke test](https://github.com/namaserajesh/ai-job-search-india/actions/workflows/smoke.yml/badge.svg)](https://github.com/namaserajesh/ai-job-search-india/actions/workflows/smoke.yml)
+[![Node.js](https://img.shields.io/badge/Node.js-22.13%2B-5FA04E?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![career-ops](https://img.shields.io/badge/career--ops-add--on-24292F?logo=github&logoColor=white)](https://github.com/career-ops-hq/career-ops)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 An add-on for [career-ops](https://github.com/career-ops-hq/career-ops), the open-source AI job-search agent, set up for **job seekers in India: freshers and experienced professionals**. It adds:
 
 - **India-specific checks** in every job evaluation: CTC vs in-hand pay, bonds and fees, consultant listings and common scam signs, plus checks for your stage:
@@ -8,7 +13,7 @@ An add-on for [career-ops](https://github.com/career-ops-hq/career-ops), the ope
 - **Two switches for the automatic job scan:** market (**India** or **Abroad**) and level (**fresher**, **experienced** or **all**), with tested company lists.
 - **Starter files** for a fresher or an experienced profile and CV.
 
-Prepared for the TKIET "Find a Dream Job Using AI" workshop. Built to work with career-ops (MIT licence); not made or endorsed by the career-ops project.
+Prepared for the TKIET workshop "How to Get a Dream Job Using Advanced AI Techniques" ([handout](https://namase.com/tkiet)). Built to work with career-ops (MIT license); not made or endorsed by the career-ops project.
 
 ---
 
@@ -46,7 +51,7 @@ Skip the buttons entirely with `node india-pack/setup.mjs --no-dashboard`; the t
 | Let the AI search a job portal with you | Open the portal in the browser your AI tool can see (for example Claude in Chrome), sign in yourself, then ask: *"portal search: fresher Java jobs in Pune on Naukri, last 7 days"*. It reads up to 2 pages / 10 jobs, adds them to your inbox and asks which to evaluate. See the warning below |
 | See new jobs at big companies | `/career-ops scan`, or preview one company fast: `node scan.mjs --company Amazon --dry-run` |
 | See all your applications | `/career-ops tracker`, or the dashboard: `npm --prefix web ci` once, then `npm run ui` |
-| Practise for an interview | `/career-ops interview-prep` |
+| Practice for an interview | `/career-ops interview-prep` |
 
 **Most jobs are not in the automatic scan.** It reads company career sites, not job portals. On 25 October 2026 the fresher scan read 22,740 jobs at 26 big companies and found only 10 clearly entry-level roles in India, while Naukri listed 217 fresher software jobs in Pune alone. Use the job portals to *find* jobs and career-ops to *check, tailor and track* them.
 
@@ -67,7 +72,7 @@ node india-pack/switch-market.mjs status
 
 | Setting | What the scan looks for |
 |---|---|
-| **india** | 51 job boards tested on 25 October 2026, India locations only. **Big tech:** Amazon, Microsoft, Google, NVIDIA, IBM, Salesforce, Intel, Adobe, Cisco, AMD, Databricks. **IT services:** Wipro, HCLTech, Synechron, Zensar, Hexaware, Birlasoft. **Tech centres in India:** Barclays, Citi, Deutsche Bank, Mastercard, BNY, Standard Chartered, FIS, Nasdaq, Bosch, Siemens, Mercedes-Benz R&D, Caterpillar, Texas Instruments, NXP, Analog Devices, eBay, Optum, Vodafone VOIS. **Indian companies and startups:** Paytm, Druva, PubMatic, Mindtickle, Rubrik, Groww, Meesho, Zeta, CRED, Sarvam AI, HackerRank. **Startup-investor job boards** (each lists jobs at many portfolio startups): Peak XV, Lightspeed, Accel, 3one4 Capital, Omnivore. Accenture and Applied Materials are in the list but switched off (huge or slow boards); turn them on in `portals.yml` if you want them |
+| **india** | 51 job boards tested on 25 October 2026, India locations only. **Big tech:** Amazon, Microsoft, Google, NVIDIA, IBM, Salesforce, Intel, Adobe, Cisco, AMD, Databricks. **IT services:** Wipro, HCLTech, Synechron, Zensar, Hexaware, Birlasoft. **Tech centers in India:** Barclays, Citi, Deutsche Bank, Mastercard, BNY, Standard Chartered, FIS, Nasdaq, Bosch, Siemens, Mercedes-Benz R&D, Caterpillar, Texas Instruments, NXP, Analog Devices, eBay, Optum, Vodafone VOIS. **Indian companies and startups:** Paytm, Druva, PubMatic, Mindtickle, Rubrik, Groww, Meesho, Zeta, CRED, Sarvam AI, HackerRank. **Startup-investor job boards** (each lists jobs at many portfolio startups): Peak XV, Lightspeed, Accel, 3one4 Capital, Omnivore. Accenture and Applied Materials are in the list but switched off (huge or slow boards); turn them on in `portals.yml` if you want them |
 | **abroad** | 22 global companies (Amazon, Atlassian, Stripe, Spotify, Datadog and others) in Singapore, the UAE, Europe, the UK, Japan, Canada and Australia. India is blocked. The United States is left out on purpose |
 | **fresher** | Entry-level, graduate and internship software titles; senior titles blocked |
 | **experienced** | Software, data, cloud, QA, architect, lead and manager titles; internship and entry-level titles skipped by career-ops' seniority check |
@@ -113,5 +118,26 @@ Always read the **Verdict** line at the top of each report first.
 | `india-pack/lists/` | Building blocks for the scan list: locations (India, Abroad), job titles (fresher, experienced, all), companies (India, Abroad) |
 | `india-pack/starter/fresher/` | Fresher profile, targeting notes and one-page CV template |
 | `india-pack/starter/experienced/` | Experienced profile (notice period, expected CTC), targeting notes and CV template |
+| `test/smoke.mjs` | End-to-end test against a career-ops folder (for contributors; not needed to use the pack) |
 
 Company lists and numbers were checked on 25 October 2026. Job boards change; if a company stops returning jobs, `node verify-pipeline.mjs` and the dashboard's Portals page will show it.
+
+## Contributing
+
+Company boards change often, so list fixes are the most useful help. Read
+[CONTRIBUTING.md](CONTRIBUTING.md) first, and use the
+[issue forms](https://github.com/namaserajesh/ai-job-search-india/issues/new/choose) to
+report a bug or suggest a company. This project follows a
+[Code of Conduct](CODE_OF_CONDUCT.md). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
+
+## Security
+
+Report a vulnerability privately, as [SECURITY.md](SECURITY.md) describes. Never post
+a CV, Aadhaar, PAN or API key in an issue.
+
+## License and credits
+
+[MIT](LICENSE), by Rajesh Namase. Built on
+[career-ops](https://github.com/career-ops-hq/career-ops) by Santiago Fernández
+(santifer), also MIT; parts of the company lists are adapted from it, see
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

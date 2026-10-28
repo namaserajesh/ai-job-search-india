@@ -1,0 +1,7 @@
+* text=auto eol=lf
+
+# Kept out of "Download ZIP" and release archives: students copy only india-pack/.
+/.github export-ignore
+/test export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore

@@ -1,0 +1,35 @@
+name: Company board
+description: Suggest a company for the India or Abroad scan, or report one that stopped returning jobs.
+labels: [company-list]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Request
+      options:
+        - Add a company
+        - A company stopped returning jobs
+    validations:
+      required: true
+  - type: input
+    id: company
+    attributes:
+      label: Company and careers page
+      placeholder: "Example Corp · https://careers.example.com"
+    validations:
+      required: true
+  - type: dropdown
+    id: market
+    attributes:
+      label: Market
+      options:
+        - India
+        - Abroad
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What you saw
+      description: The output of node scan.mjs --company "<Name>" --dry-run, if you ran it, and the date.
+      render: shell

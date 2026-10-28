@@ -1,0 +1,52 @@
+# End-to-end smoke test: install the latest career-ops release the way a student
+# does (npx @santifer/career-ops init), copy india-pack in, and run
+# test/smoke.mjs: setup, every market/level switch, setup again, and the
+# dashboard unpatch/repatch the README asks for before a career-ops update.
+#
+# Minutes: this repo is public, so standard GitHub-hosted runners bill nothing
+# against the account's private-repo allowance. The usual estate defaults are
+# kept anyway (one job, positive paths, concurrency) so the file stays correct
+# if the repo is ever made private.
+#
+# The monthly schedule is the point of the job, not an extra: the pack patches
+# files that career-ops owns (modes/_custom.md, the Explore page), so the likely
+# break is a new career-ops release, which no push to this repo would catch.
+name: Smoke test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'india-pack/**'
+      - 'test/**'
+      - '.github/workflows/smoke.yml'
+  pull_request:
+    paths:
+      - 'india-pack/**'
+      - 'test/**'
+      - '.github/workflows/smoke.yml'
+  schedule:
+    - cron: '17 3 1 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          # The floor career-ops declares (^22.13.0) and the README tells students to install.
+          node-version: '22.13'
+      - name: Install career-ops (latest release, as a student would)
+        run: npx --yes @santifer/career-ops@latest init "$RUNNER_TEMP/career-ops"
+      - name: Run the pack against it
+        run: node test/smoke.mjs "$RUNNER_TEMP/career-ops" --require-yaml

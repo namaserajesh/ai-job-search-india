@@ -1,0 +1,14 @@
+# Monthly, one grouped PR. The only ecosystem here is the workflow's actions
+# (the pack has no npm dependencies of its own). Security updates still open
+# immediately, whatever the schedule says.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      github-actions-all:
+        patterns:
+          - '*'
+    open-pull-requests-limit: 3

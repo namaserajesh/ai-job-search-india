@@ -1,0 +1,30 @@
+name: Bug report
+description: Setup, the market switch or an India check is not working as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. A problem in career-ops itself (scanner, dashboard, modes) belongs in the [career-ops issues](https://github.com/career-ops-hq/career-ops/issues). Never paste your CV, phone number, Aadhaar, PAN or any API key here.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you ran, what you expected, and what happened instead.
+      placeholder: I ran node india-pack/setup.mjs experienced and ...
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Terminal output
+      description: Copy the full output of the command that failed.
+      render: shell
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Pack version (or download date), career-ops version (the VERSION file in your career-ops folder), Node.js version (node --version) and your OS.
+      placeholder: "pack 1.0.0 · career-ops 1.38.0 · Node 22.13 · Windows 11"
+    validations:
+      required: true
