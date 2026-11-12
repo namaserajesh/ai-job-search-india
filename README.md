@@ -10,6 +10,9 @@ An add-on for [career-ops](https://github.com/career-ops-hq/career-ops), the ope
 - **India-specific checks** in every job evaluation: CTC vs in-hand pay, bonds and fees, consultant listings and common scam signs, plus checks for your stage:
   - **Freshers:** batch year, joining date vs final exams, hidden experience lines, CGPA and backlog cut-offs.
   - **Experienced:** experience band, notice period and buyout, title and grade differences, current/expected CTC handling, non-compete and moonlighting clauses, relieving letters.
+
+  These checks are now part of career-ops itself, as its India market mode `modes/in/` (contributed from this pack). The pack's starter profiles switch it on. On a career-ops release that does not have `modes/in/` yet (v1.40.0 and earlier), setup adds the pack's own copy instead.
+- **Portal search on request:** a careful, human-paced search of Naukri, LinkedIn, Internshala and similar sites in a browser you can see, only when you ask.
 - **Two switches for the automatic job scan:** market (**India** or **Abroad**) and level (**fresher**, **experienced** or **all**), with tested company lists.
 - **Starter files** for a fresher or an experienced profile and CV.
 
@@ -30,7 +33,7 @@ Prepared for the TKIET workshop "How to Get a Dream Job Using Advanced AI Techni
    node india-pack/setup.mjs
    node india-pack/setup.mjs experienced
    ```
-   The first is for freshers, the second for experienced professionals. It adds the India checks to `modes/_custom.md` and builds your job-scan list. It never deletes your files, and you can run it again after updating the pack.
+   The first is for freshers, the second for experienced professionals. It adds the pack's rules to `modes/_custom.md`, builds your job-scan list, and tells you whether your career-ops has the India mode (`modes/in/`) or needs the pack's copy of the checks. It never deletes your files, and you can run it again after updating the pack.
 4. Open your AI coding tool in the `career-ops` folder (for example `claude`) and type `/career-ops`. Say: *"I am a fresher in India"* or *"I am an experienced professional in India; use the india-pack starter files for my profile."* It sets up your CV and profile by chatting.
 
 Claude Code needs a paid Claude plan. For free routes, read `docs/FREE_TIER.md` and `docs/RUNNING_ON_A_BUDGET.md` in your career-ops folder.
@@ -114,7 +117,8 @@ Always read the **Verdict** line at the top of each report first.
 | `india-pack/setup.mjs` | One-time install (`experienced` for experienced professionals) |
 | `india-pack/switch-market.mjs` | Market and level switch |
 | `india-pack/dashboard/explore-switch.tsx.txt` | The dashboard's Job scan setting card (added to the Explore page by setup) |
-| `india-pack/custom-rules.md` | The India checks (copied into `modes/_custom.md` by setup) |
+| `india-pack/custom-rules.md` | The pack's own rules: Abroad roles, portal search, output preferences (copied into `modes/_custom.md` by setup) |
+| `india-pack/rules-without-modes-in.md` | The India checks, added by setup only when your career-ops has no `modes/in/` yet |
 | `india-pack/lists/` | Building blocks for the scan list: locations (India, Abroad), job titles (fresher, experienced, all), companies (India, Abroad) |
 | `india-pack/starter/fresher/` | Fresher profile, targeting notes and one-page CV template |
 | `india-pack/starter/experienced/` | Experienced profile (notice period, expected CTC), targeting notes and CV template |

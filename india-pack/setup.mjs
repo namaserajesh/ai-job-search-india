@@ -68,8 +68,13 @@ if (!['fresher', 'experienced', 'all'].includes(level)) {
 }
 
 // 1. House rules: add or refresh the pack's block in modes/_custom.md.
+// The India checks live upstream in career-ops modes/in/ (merged after v1.40.0). On an
+// older career-ops without that folder, the pack's own copy of them is added instead.
 const customPath = join(ROOT, 'modes', '_custom.md');
-const rules = `${START}\n${readFileSync(join(PACK, 'custom-rules.md'), 'utf8').trim()}\n${END}\n`;
+const hasModesIn = existsSync(join(ROOT, 'modes', 'in', '_shared.md'));
+const ruleFiles = hasModesIn ? ['custom-rules.md'] : ['custom-rules.md', 'rules-without-modes-in.md'];
+const ruleText = ruleFiles.map((f) => readFileSync(join(PACK, f), 'utf8').trim()).join('\n\n');
+const rules = `${START}\n${ruleText}\n${END}\n`;
 let custom;
 if (existsSync(customPath)) {
   custom = readFileSync(customPath, 'utf8');
@@ -100,6 +105,15 @@ if (!existsSync(portals)) {
 
 // 3. Dashboard buttons on the Explore page.
 if (!flags.has('--no-dashboard')) console.log(`Dashboard buttons (Explore page): ${patchDashboard()}`);
+
+// 4. The India checks: upstream modes/in/, or the pack's copy on an older career-ops.
+if (hasModesIn) {
+  console.log('India checks: career-ops modes/in/. Turn it on with  language: { modes_dir: modes/in }  in config/profile.yml');
+  console.log('  (the pack\'s starter profiles already set it).');
+} else {
+  console.log('India checks: this career-ops has no modes/in/ yet, so the pack\'s own copy was added to modes/_custom.md.');
+  console.log('  After a career-ops update that brings modes/in/, run this setup again.');
+}
 
 console.log('\nDone. Open Claude Code in this folder and type /career-ops to finish setup by chatting.');
 console.log(`Tell it: "I am ${level === 'experienced' ? 'an experienced professional' : 'a fresher'} in India; use the india-pack starter files for my profile."`);

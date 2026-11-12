@@ -13,7 +13,7 @@
 // installs. --require-yaml (set in CI) makes a missing js-yaml a failure instead
 // of a skip.
 import assert from 'node:assert/strict';
-import { cpSync, existsSync, readFileSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
@@ -85,7 +85,24 @@ assert.equal(readFileSync(CUSTOM, 'utf8').split('<!-- india-fresher-pack:start -
 assert.match(readFileSync(PORTALS, 'utf8'), /^# market: abroad level: all\n/);
 ok('setup is idempotent and keeps the chosen scan list');
 
-// 4. The update path from the README: unpatch restores career-ops' own page.
+// 4. The India checks come from career-ops modes/in/ when it has one, else from the pack.
+const MODES_IN = join(ROOT, 'modes', 'in', '_shared.md');
+const LEGACY_MARK = 'India checks for career-ops without `modes/in/`';
+const hadModesIn = existsSync(MODES_IN);
+assert.equal(readFileSync(CUSTOM, 'utf8').includes(LEGACY_MARK), !hadModesIn, 'fallback India checks added in the wrong case');
+ok(`setup ${hadModesIn ? 'leaves the India checks to modes/in/' : 'adds its own India checks (no modes/in/ here)'}`);
+if (!hadModesIn) {
+  mkdirSync(dirname(MODES_IN), { recursive: true });
+  writeFileSync(MODES_IN, '# placeholder for the smoke test\n');
+  run('setup.mjs');
+  assert.ok(!readFileSync(CUSTOM, 'utf8').includes(LEGACY_MARK), 'fallback India checks stayed after modes/in/ appeared');
+  rmSync(dirname(MODES_IN), { recursive: true, force: true });
+  run('setup.mjs');
+  assert.ok(readFileSync(CUSTOM, 'utf8').includes(LEGACY_MARK), 'fallback India checks not restored');
+  ok('setup swaps its India checks out once career-ops has modes/in/');
+}
+
+// 5. The update path from the README: unpatch restores career-ops' own page.
 if (exploreBefore !== null) {
   run('setup.mjs', '--unpatch-dashboard');
   assert.equal(readFileSync(EXPLORE, 'utf8'), exploreBefore, 'unpatch did not restore the original Explore page');

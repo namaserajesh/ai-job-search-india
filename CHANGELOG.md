@@ -6,6 +6,17 @@ All notable changes to this project are recorded here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- The India checks (old rules 1 to 15) moved upstream: career-ops merged them as
+  its India market mode `modes/in/` (career-ops PR #6964). `custom-rules.md` now
+  holds only what the pack adds: Abroad roles, portal search, output preferences
+  and setup. The starter profiles set `language.modes_dir: modes/in`.
+- `setup.mjs` checks for `modes/in/`. On a career-ops without it (v1.40.0 and
+  earlier) it adds the pack's copy of the checks, now in
+  `rules-without-modes-in.md`; once career-ops has `modes/in/`, running setup
+  again swaps that copy out. The smoke test covers both cases.
+
 ## [1.0.0] - 2026-10-28
 
 First tagged release, prepared for the TKIET workshop.
