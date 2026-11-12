@@ -6,10 +6,14 @@ All notable changes to this project are recorded here. The format follows
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-12
+
+The India checks are now part of career-ops itself.
+
 ### Changed
 
 - The India checks (old rules 1 to 15) moved upstream: career-ops merged them as
-  its India market mode `modes/in/` (career-ops PR #6964). `custom-rules.md` now
+  its India market mode `modes/in/` (career-ops-hq/career-ops#6964). `custom-rules.md` now
   holds only what the pack adds: Abroad roles, portal search, output preferences
   and setup. The starter profiles set `language.modes_dir: modes/in`.
 - `setup.mjs` checks for `modes/in/`. On a career-ops without it (v1.40.0 and
@@ -43,5 +47,6 @@ First tagged release, prepared for the TKIET workshop.
 - Contributing guide, security policy, code of conduct, issue forms and pull
   request template.
 
-[Unreleased]: https://github.com/namaserajesh/ai-job-search-india/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/namaserajesh/ai-job-search-india/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/namaserajesh/ai-job-search-india/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/namaserajesh/ai-job-search-india/releases/tag/v1.0.0
